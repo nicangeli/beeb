@@ -28,4 +28,5 @@
     </body>
     <script src="js/app.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/models.js"></script>
 </html>
