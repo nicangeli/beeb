@@ -11,7 +11,7 @@
     <body>
         <div id="search" ng-controller="SearchController">
             <form>
-                <input type="text" ng-model="query" ng-model-options="{ debounce: 500 }" ng-change="onEdit()">
+                <input name="search" id="search" type="text" ng-model="query" ng-model-options="{ debounce: 500 }" ng-change="onEdit()">
                 <button ng-click="onSearch()">Search</button>
             </form> 
             <div ng-repeat="result in results track by $index" ng-show="query">
