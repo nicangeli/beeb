@@ -1,6 +1,5 @@
-var myControllers = angular.module('myControllers', []);
-
-myControllers.controller('SearchController', ['$scope', '$http', function($scope, $http) {
+angular.module('myControllers', [])
+  .controller('SearchController', ['$scope', '$http', 'Program', function($scope, $http, Program) {
 
     $scope.onSearch = function() {
       $scope.onEdit();  
@@ -8,20 +7,14 @@ myControllers.controller('SearchController', ['$scope', '$http', function($scope
 
     $scope.onEdit = function() {
       console.log($scope.query);
-      $http({method: 'GET', url: 'api/programs/' + $scope.query}).
-            success(function(data, status, headers, config) {
-              // this callback will be called asynchronously
-              // when the response is available
-              console.log('success');
-              console.log(data);
-              $scope.results = data;
-            }).
-            error(function(data, status, headers, config) {
-              // called asynchronously if an error occurs
-              // or server returns response with an error status.
-              console.error(data);
-              console.log('error');
-            });
+
+      Program.query($scope.query)
+        .success(function(data, status, headers, config) {
+          $scope.results = data;
+        })
+        .error(function(data, status, headers, config) {
+          console.log(data);
+        })
     }
 
-}]);
+  }]);

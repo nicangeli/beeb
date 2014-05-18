@@ -14,7 +14,7 @@
                 <input type="text" ng-model="query" ng-model-options="{ debounce: 500 }" ng-change="onEdit()">
                 <button ng-click="onSearch()">Search</button>
             </form> 
-            <div ng-repeat="result in results" ng-show="query">
+            <div ng-repeat="result in results track by $index" ng-show="query">
                 <ul>
                     <li>
                         <a href="{{result.url}}">{{result.title}}</a>
@@ -27,6 +27,6 @@
         </div>
     </body>
     <script src="js/app.js"></script>
-    <script type="text/javascript" src="js/controllers.js"></script>
     <script type="text/javascript" src="js/models.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
 </html>

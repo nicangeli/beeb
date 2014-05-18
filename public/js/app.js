@@ -1,1 +1,1 @@
-var myApp = angular.module('myApp', ['myControllers']);
+var myApp = angular.module('myApp', ['myControllers', 'ProgramModel']);
